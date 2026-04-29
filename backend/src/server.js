@@ -19,6 +19,7 @@ app.use(rateLimiter);
 //   next();
 // });
 
+// Routes
 app.use("/api/notes", noteRoutes);
 
 // Connect to database first before listening to the port

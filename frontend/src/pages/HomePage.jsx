@@ -5,17 +5,19 @@ import axios from 'axios';
 import toast from 'react-hot-toast';
 import { LoaderCircle } from 'lucide-react';
 import NoteCard from '../components/NoteCard';
+import { use } from 'react';
+import api from '../lib/axios';
 
 const HomePage = () => {
   const [rateLimited, setRateLimited] = useState(false);
   const [notes, setNotes] = useState([]);
   const [loading, setLoading] = useState(false);
 
-  useEffect(() => {
+  use(() => {
     const fetchNotes = async () => {
       setLoading(true);
       try {
-        const res = await axios.get("http://localhost:5001/api/notes"); // Get the data
+        const res = await api.get("/notes"); // Get the data (same to routes in controller)
         console.log("Notes:", res.data);
         setNotes(res.data); // Store the data to state
         setRateLimited(false);

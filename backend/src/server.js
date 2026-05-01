@@ -1,7 +1,7 @@
 import express from 'express';
 import noteRoutes from "./routes/noteRoutes.js";
 import { connectDb } from '../config/db.js';
-import rateLimiter from './middleware/rateLimiter';
+import rateLimiter from './middleware/rateLimiter.js';
 import dotenv from "dotenv";
 import path from "path";
 
